@@ -7,6 +7,7 @@ Second part:Write a function to distinguish vowels from other letters (the funct
 Modify the program above to use this function in main().
 For now we do not use the function many times, but we could! Please note that the program is much more readable now!
 
+
 Third part: How to make it work for words starting with a capital? Like, for the word „Apart” „Ahapahart” should be printed. 
 To accomplish this the program must be able to identify uppercase vowels, too. The original character should be printed before h, and the lowercase counterpart after it. 
 You can use your existing vowel() function for deciding but always pass the lowercase letter to it.
@@ -18,8 +19,26 @@ for any other character it returns the original character.
 
 
 #include <stdio.h>
+#include <ctype.h>
+
+int vowel(char a){
+    a = tolower(a);
+    if(a == 'a'||a=='e'||a=='i'||a=='o'||a=='u'){
+        return 1;
+    }else{
+        return 0;
+    }
+}
 
 int main(){
 
-return 0;
+    char c;
+    while (scanf("%c", &c) == 1) {
+        if (vowel(c)==1)
+            printf("%ch%c", c, c);
+        else
+            printf("%c", c);
+    }
+
+    return 0;
 }

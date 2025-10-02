@@ -11,9 +11,64 @@ Top-down: when solving programming problems by breaking them down into smaller a
 
 
 #include <stdio.h>
+int prime(int x){
+  int sum = 0;
+  for(int i = 2; i < x; i++){
+    if(x%i==0){
+      sum += 1;
+    }else{
+      sum += 0;
+    }
+  }
+  if(sum == 0){
+    return 1;
+
+  }else{
+    return 0;
+  }
+}
+
+int five(int x){
+  int n, sum;
+  sum = 0;
+  while(x > 0){
+    n = x % 10;
+    if(n == 5){
+      sum++;
+    }
+    x = x/10;
+  }
+
+  if(sum>0){
+    return 1;
+  }else{
+    return 0;
+  }
+}
 
 int main(){
 
+  int counter = 0;
+  int i= 3;
+  while(counter < 60){
+    
+    if(prime(i)==1 && prime(i+2)==1){
+      printf("%d, %d\n", i, i+2);
+      if(five(i+1)== 1){
+        printf("FIVE\n");
+      }
+      i++;
+      counter++;
+      
+    }else{
+      i++;
+    }
+  
+  }
+
+  printf("%d", counter);
+
+    
 
   return 0;
 }
